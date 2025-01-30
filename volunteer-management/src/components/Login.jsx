@@ -11,7 +11,7 @@ const Login = ({ setUser }) => {
     e.preventDefault();
 
     // Mock authentication
-    if (email === 'user@example.com' && password === 'password123') {
+    if (email === 'user@example.com' && password === 'password123' || email === 'balls@gmail.com' && password === '1111' ) {
       const user = { email };
       setUser(user); // Store user in state
       localStorage.setItem('user', JSON.stringify(user)); // Store user in localStorage
