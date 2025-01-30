@@ -7,7 +7,7 @@ const VolunteerForm = ({ addVolunteer }) => {
   const [contact, setContact] = useState('');
   const [event, setEvent] = useState('');  // New state for event name
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!name || !email || !contact || !event) {
@@ -16,14 +16,29 @@ const VolunteerForm = ({ addVolunteer }) => {
     }
 
     const newVolunteer = {
-      id: Date.now(),
       name,
       email,
       contact,
-      event,  // Include event in the volunteer object
+      event,
     };
 
-    addVolunteer(newVolunteer);
+    // Send the volunteer data to the backend
+    const response = await fetch('http://localhost:5000/api/volunteers/add', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newVolunteer),
+    });
+
+    const data = await response.json();
+
+    if (data.message === 'Volunteer added successfully') {
+      alert('Volunteer added');
+      addVolunteer(newVolunteer);  // Update the UI with the new volunteer
+    } else {
+      alert('Failed to add volunteer');
+    }
 
     // Clear the form
     setName('');

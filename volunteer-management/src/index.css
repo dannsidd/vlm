@@ -1,19 +1,63 @@
-/* src/index.css */
-.App {
-  font-family: Arial, sans-serif;
-  margin: 20px;
+/* index.css */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fafafa;
 }
 
-input {
-  margin: 5px;
-  padding: 10px;
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: center; /* Vertically center the content */
+  align-items: center;     /* Horizontally center the content */
+  background-color: #f4f4f9;
+  text-align: center;      /* Center text alignment */
+}
+
+h1, h2 {
+  margin: 0;
+  padding: 10px 0;
+}
+
+a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 button {
-  padding: 10px;
+  cursor: pointer;
+}
+
+input,
+button {
+  font-size: 16px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  background-color: #fafafa;
+}
+
+button {
   background-color: #4CAF50;
   color: white;
+  padding: 12px 20px;
+  border-radius: 5px;
   border: none;
+  font-size: 16px;
   cursor: pointer;
 }
 
@@ -23,16 +67,32 @@ button:hover {
 
 ul {
   list-style-type: none;
-  padding: 0;
+  padding-left: 0;
 }
 
 li {
-  background-color: #f9f9f9;
+  background-color: #fff;
   padding: 15px;
   margin-bottom: 10px;
   border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-  color: #333;
+li button {
+  background-color: #f44336;
+}
+
+li button:hover {
+  background-color: #e53935;
+}
+
+footer {
+  padding: 20px;
+  background-color: #4CAF50;
+  text-align: center;
+  color: white;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  margin-top: auto;
 }
