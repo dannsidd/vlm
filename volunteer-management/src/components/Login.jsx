@@ -16,7 +16,14 @@ const Login = ({ setUser }) => {
       setUser(user); // Store user in state
       localStorage.setItem('user', JSON.stringify(user)); // Store user in localStorage
       navigate('/dashboard'); // Redirect to dashboard
-    } else {
+    } 
+    else if (email === 'balls@gmail.com' && password === '1111' ) {
+        const user = { email };
+        setUser(user); // Store user in state
+        localStorage.setItem('user', JSON.stringify(user)); // Store user in localStorage
+        navigate('/dashboard'); // Redirect to dashboard
+      }
+    else {
       alert('Invalid credentials');
     }
   };
